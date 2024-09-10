@@ -1,5 +1,6 @@
 import Community from "@/components/Community";
 import FeaturesSection from "@/components/Features";
+import Footer from "@/components/Footer";
 import HeroSection from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 
@@ -12,6 +13,7 @@ export default function Home() {
       </section>
       <FeaturesSection />
       <Community />
+      <Footer />
     </main>
   );
 }

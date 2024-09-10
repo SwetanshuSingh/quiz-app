@@ -59,10 +59,8 @@ const Community = () => {
             </a>
           </span>
         </div>
-        <div className="w-[540px] h-[300px] flex gap-5">
-          <div className="w-14 h-14 bg-gray-800 rounded-full"></div>
-          <div className="w-14 h-14 bg-gray-800 rounded-full"></div>
-          <div className="w-14 h-14 bg-gray-800 rounded-full"></div>
+        <div className="w-[540px] h-[300px] flex justify-center items-center bg-[#2F2E30] rounded-xl">
+          <p className="text-xl">{"looking for contributors :)"}</p>
         </div>
       </div>
     </section>
