@@ -41,7 +41,7 @@ const RandomPuzzleIcons = () => {
       {icons.map((icon, index) => (
         <div
           key={index}
-          className="absolute bg-[#E7E7E4] w-fit p-2 rounded-lg"
+          className="absolute bg-[#E7E7E4] w-fit p-4 rounded-xl"
           style={{
             left: `${icon.x}%`,
             top: `${icon.y}%`,
