@@ -1,3 +1,4 @@
+import Community from "@/components/Community";
 import FeaturesSection from "@/components/Features";
 import HeroSection from "@/components/Hero";
 import Navbar from "@/components/Navbar";
@@ -10,7 +11,7 @@ export default function Home() {
         <HeroSection />
       </section>
       <FeaturesSection />
-      <section>helooo</section>
+      <Community />
     </main>
   );
 }
