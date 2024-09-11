@@ -1,5 +1,5 @@
 import RandomPuzzleIcons from "@/components/PuzzleBox";
-import Link from "next/link";
+import StartQuizDialog from "./StartQuizDialog";
 
 const HeroSection = () => {
   return (
@@ -13,13 +13,7 @@ const HeroSection = () => {
           Challenge your friends, compete on the leaderboard, and get instant
           feedback on your answers.
         </p>
-        <Link
-          href="#"
-          className="w-fit bg-[#E7E7E4] text-[#0F0F10] inline-flex h-12 items-center justify-center rounded-md px-8 font-medium shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-          prefetch={false}
-        >
-          Start a Quiz
-        </Link>
+        <StartQuizDialog />
       </div>
       <RandomPuzzleIcons />
     </div>
