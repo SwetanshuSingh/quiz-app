@@ -1,11 +1,17 @@
-"use client"
-import { DialogContent } from "../ui/dialog";
+"use client";
+import { DialogViewState } from "../StartQuizDialog";
 
-const JoinDialogView = () => {
+type JoinDialogViewProps = {
+  setDialogView: React.Dispatch<React.SetStateAction<DialogViewState>>;
+};
+
+const JoinDialogView = ({ setDialogView }: JoinDialogViewProps) => {
   return (
-    <DialogContent className="sm:max-w-[425px] bg-[#0F0F10] text-[#E7E7E4] border-[#E7E7E4] border-opacity-20">
-      <div>Hello</div>
-    </DialogContent>
+    <div>
+      <button className="w-fit bg-[#E7E7E4] text-[#0F0F10] inline-flex h-12 items-center justify-center rounded-md px-8 font-medium shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50">
+        Back
+      </button>
+    </div>
   );
 };
 

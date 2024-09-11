@@ -17,14 +17,18 @@ const StartQuizDialog = () => {
           Start a Quiz
         </button>
       </DialogTrigger>
-      <DialogContent className="bg-[#0F0F10] text-[#E7E7E4]">
+      <DialogContent className="bg-[#0F0F10] text-[#E7E7E4] border-[#E7E7E4] border-opacity-20">
         {dialogView === "HOME" ? (
           <HomeDialogView setDialogView={setDialogView} />
         ) : null}
 
-        {dialogView === "CREATE" ? <CreateDialogView /> : null}
+        {dialogView === "CREATE" ? (
+          <CreateDialogView setDialogView={setDialogView} />
+        ) : null}
 
-        {dialogView === "JOIN" ? <JoinDialogView /> : null}
+        {dialogView === "JOIN" ? (
+          <JoinDialogView setDialogView={setDialogView} />
+        ) : null}
       </DialogContent>
     </Dialog>
   );
