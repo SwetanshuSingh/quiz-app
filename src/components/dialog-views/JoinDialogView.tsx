@@ -15,14 +15,26 @@ const JoinDialogView = ({ setDialogView }: JoinDialogViewProps) => {
         </DialogTitle>
       </DialogHeader>
 
-      <div className="flex flex-col gap-2">
-        <p className="text-xl font-medium text-gray-200">
-          Enter room code below to join
-        </p>
-        <input
-          className="p-3 rounded-md bg-[#1A1A1B] hover:bg-[#2A2A2B] text-[#E7E7E4] border border-[#E7E7E4] border-opacity-20"
-          type="text"
-        />
+      <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-2">
+          <p className="text-xl font-medium text-gray-200">
+            Enter your name
+          </p>
+          <input
+            className="p-3 rounded-md bg-[#1A1A1B] hover:bg-[#2A2A2B] text-[#E7E7E4] border border-[#E7E7E4] border-opacity-20"
+            type="text"
+          />
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <p className="text-xl font-medium text-gray-200">
+            Enter room code below to join
+          </p>
+          <input
+            className="p-3 rounded-md bg-[#1A1A1B] hover:bg-[#2A2A2B] text-[#E7E7E4] border border-[#E7E7E4] border-opacity-20"
+            type="text"
+          />
+        </div>
       </div>
 
       <div className="flex justify-between items-center">

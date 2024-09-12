@@ -1,9 +1,5 @@
 "use client";
-import {
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "../ui/button";
 import { PlusCircle, Users } from "lucide-react";
 import { DialogViewState } from "../StartQuizDialog";
