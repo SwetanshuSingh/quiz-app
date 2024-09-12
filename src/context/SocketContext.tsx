@@ -24,14 +24,14 @@ export const SocketContextProvider = ({
   const [socket, setSocket] = useState<Socket | undefined>(undefined);
 
   useEffect(() => {
-    const socket = io("http://localhost:3001");
-    socket.emit("connection");
-    setSocket(socket);
+    // const socket = io("http://localhost:3001");
+    // socket.emit("connection");
+    // setSocket(socket);
 
-    return () => {
-      socket.disconnect();
-      setSocket(undefined);
-    };
+    // return () => {
+    //   socket.disconnect();
+    //   setSocket(undefined);
+    // };
   }, []);
 
   return (
