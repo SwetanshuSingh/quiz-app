@@ -31,11 +31,11 @@ const StartQuizDialog = () => {
         ) : null}
 
         {dialogView === "CREATE" ? (
-          <CreateDialogView setDialogView={setDialogView} />
+          <CreateDialogView setDialogView={setDialogView} socket={socket} />
         ) : null}
 
         {dialogView === "JOIN" ? (
-          <JoinDialogView setDialogView={setDialogView} />
+          <JoinDialogView setDialogView={setDialogView} socket={socket} />
         ) : null}
       </DialogContent>
     </Dialog>
