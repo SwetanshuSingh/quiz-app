@@ -32,7 +32,7 @@ export const SocketContextProvider = ({
       socket.disconnect();
       setSocket(undefined);
     };
-  }, [socket]);
+  }, []);
 
   return (
     <SocketContext.Provider value={{ socket }}>
