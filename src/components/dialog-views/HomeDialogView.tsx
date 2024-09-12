@@ -13,7 +13,7 @@ const HomeDialogView = ({ setDialogView }: HomeDialogViewProps) => {
     <>
       <DialogHeader className="space-y-2">
         <DialogTitle className="text-4xl font-bold text-[#E7E7E4]">
-          Let's Get Started
+          Let&apos;s Get Started
         </DialogTitle>
         <p className="text-xl leading-tight font-medium text-gray-200">
           Create a quiz or join an existing quiz room to continue!
