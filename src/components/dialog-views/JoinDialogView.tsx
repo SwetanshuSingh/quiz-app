@@ -1,23 +1,23 @@
 "use client";
-import { Socket } from "socket.io-client";
 import { DialogViewState } from "../StartQuizDialog";
 import { DialogHeader, DialogTitle } from "../ui/dialog";
 import { useState } from "react";
+import { useSocket } from "@/context/SocketContext";
 
 type JoinDialogViewProps = {
   setDialogView: React.Dispatch<React.SetStateAction<DialogViewState>>;
-  socket: Socket | null;
 };
 
-const JoinDialogView = ({ setDialogView, socket }: JoinDialogViewProps) => {
+const JoinDialogView = ({ setDialogView }: JoinDialogViewProps) => {
+  const { socket } = useSocket();
   const [username, setUsername] = useState("");
   const [roomcode, setRoomCode] = useState("");
 
   const joinRoom = () => {
-    const user = {
-      username,
-    };
-    socket?.emit("new-user", user, (response: { status: string }) => {
+    if (!socket) return;
+
+    const user = { username };
+    socket.emit("new-user", user, (response: { status: string }) => {
       if (response.status === "success") {
         socket.emit("join-game-room", roomcode);
       }

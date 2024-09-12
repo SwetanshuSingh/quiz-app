@@ -1,26 +1,29 @@
 "use client";
-import { Socket } from "socket.io-client";
 import { DialogViewState } from "../StartQuizDialog";
 import { DialogHeader, DialogTitle } from "../ui/dialog";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useSocket } from "@/context/SocketContext";
 
 type CreateDialogViewProps = {
   setDialogView: React.Dispatch<React.SetStateAction<DialogViewState>>;
-  socket: Socket | null;
 };
 
-const CreateDialogView = ({ setDialogView, socket }: CreateDialogViewProps) => {
+const CreateDialogView = ({ setDialogView }: CreateDialogViewProps) => {
+  const { socket } = useSocket();
+  const router = useRouter();
   const [username, setUsername] = useState("");
   const [quizname, setQuizname] = useState("");
 
   const createRoom = () => {
-    const user = {
-      username,
-    };
-    socket?.emit("new-user", user, (response: { status: string }) => {
+    if (!socket) return;
+
+    const user = { username };
+    socket.emit("new-user", user, (response: { status: string }) => {
       if (response.status === "success") {
         socket.emit("create-game-room", quizname);
       }
+      router.push(`/room/${quizname}`);
     });
   };
 

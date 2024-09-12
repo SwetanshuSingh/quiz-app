@@ -1,22 +1,14 @@
 "use client";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import HomeDialogView from "./dialog-views/HomeDialogView";
 import CreateDialogView from "./dialog-views/CreateDialogView";
 import JoinDialogView from "./dialog-views/JoinDialogView";
-import { io, Socket } from "socket.io-client";
 
 export type DialogViewState = "HOME" | "CREATE" | "JOIN";
 
 const StartQuizDialog = () => {
-  const [socket, setSocket] = useState<null | Socket>(null);
   const [dialogView, setDialogView] = useState<DialogViewState>("HOME");
-
-  useEffect(() => {
-    const socket = io("http://localhost:3001");
-    socket.emit("connection");
-    setSocket(socket);
-  }, []);
 
   return (
     <Dialog>
@@ -31,11 +23,11 @@ const StartQuizDialog = () => {
         ) : null}
 
         {dialogView === "CREATE" ? (
-          <CreateDialogView setDialogView={setDialogView} socket={socket} />
+          <CreateDialogView setDialogView={setDialogView} />
         ) : null}
 
         {dialogView === "JOIN" ? (
-          <JoinDialogView setDialogView={setDialogView} socket={socket} />
+          <JoinDialogView setDialogView={setDialogView} />
         ) : null}
       </DialogContent>
     </Dialog>
