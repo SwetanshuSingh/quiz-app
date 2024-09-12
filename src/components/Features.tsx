@@ -1,3 +1,5 @@
+import Expandable from "./Carousel";
+
 const FeaturesSection = () => {
   return (
     <section className="bg-[#3D3D43] flex flex-col justify-center items-center lg:py-32 lg:gap-20">
@@ -38,7 +40,7 @@ const FeaturesSection = () => {
             </p>
           </div>
         </div>
-        <div className="bg-[#2F2E30] w-[540px] h-[300px] rounded-xl"></div>
+        <Expandable />
       </div>
     </section>
   );
