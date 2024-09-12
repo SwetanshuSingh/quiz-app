@@ -80,7 +80,7 @@ export default function Expandable({
   }, [autoPlay, list.length, isHovering]);
 
   return (
-    <div className={cn("flex h-96 w-[540px] gap-1", className)}>
+    <div className={cn("flex h-64 sm:h-80 md:h-96 w-full sm:w-[400px] md:w-[540px] gap-1", className)}>
       {list.map((item, index) => (
         <List
           key={item.title}
