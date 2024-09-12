@@ -3,6 +3,7 @@ import { Manrope } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { SocketContextProvider } from "@/context/SocketContext";
+import { Analytics } from "@vercel/analytics/react";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -22,7 +23,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(manrope.className)}>
-        <SocketContextProvider>{children}</SocketContextProvider>
+        <SocketContextProvider>
+          {children}
+          <Analytics />
+        </SocketContextProvider>
       </body>
     </html>
   );
