@@ -9,7 +9,11 @@ const Room = ({ params }: { params: { id: string } }) => {
   useEffect(() => {
     if (!socket) return;
 
-    socket.on("online-users", () => {});
+    socket.emit("get-game-state", params.id);
+    socket.on("game-state", (data: number) => {
+      console.log(data);
+      setOnlineUsers(data);
+    });
   }, []);
 
   return (

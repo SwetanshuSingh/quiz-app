@@ -3,6 +3,7 @@ import { DialogViewState } from "../StartQuizDialog";
 import { DialogHeader, DialogTitle } from "../ui/dialog";
 import { useState } from "react";
 import { useSocket } from "@/context/SocketContext";
+import { useRouter } from "next/navigation";
 
 type JoinDialogViewProps = {
   setDialogView: React.Dispatch<React.SetStateAction<DialogViewState>>;
@@ -10,6 +11,7 @@ type JoinDialogViewProps = {
 
 const JoinDialogView = ({ setDialogView }: JoinDialogViewProps) => {
   const { socket } = useSocket();
+  const router = useRouter();
   const [username, setUsername] = useState("");
   const [roomcode, setRoomCode] = useState("");
 
@@ -21,6 +23,7 @@ const JoinDialogView = ({ setDialogView }: JoinDialogViewProps) => {
       if (response.status === "success") {
         socket.emit("join-game-room", roomcode);
       }
+      router.push(`/room/${roomcode}`);
     });
   };
 
