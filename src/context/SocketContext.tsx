@@ -24,7 +24,8 @@ export const SocketContextProvider = ({
   const [socket, setSocket] = useState<Socket | undefined>(undefined);
 
   useEffect(() => {
-    const socket = io(process.env.BACKEND_URL as string, {
+    const socket = io("https://sweeping-engaging-colt.ngrok-free.app", {
+      transports: ["websocket"],
       extraHeaders: {
         "ngrok-skip-browser-warning": "69420",
       },
