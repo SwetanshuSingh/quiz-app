@@ -24,7 +24,11 @@ export const SocketContextProvider = ({
   const [socket, setSocket] = useState<Socket | undefined>(undefined);
 
   useEffect(() => {
-    const socket = io(process.env.BACKEND_URL as string);
+    const socket = io(process.env.BACKEND_URL as string, {
+      extraHeaders: {
+        "ngrok-skip-browser-warning": "69420",
+      },
+    });
     socket.emit("connection");
     setSocket(socket);
 
@@ -33,7 +37,7 @@ export const SocketContextProvider = ({
       setSocket(undefined);
     };
   }, []);
-  
+
   return (
     <SocketContext.Provider value={{ socket }}>
       {children}
