@@ -4,6 +4,7 @@ import { DialogHeader, DialogTitle } from "../ui/dialog";
 import { useState } from "react";
 import { useSocket } from "@/context/SocketContext";
 import { useRouter } from "next/navigation";
+import { Loader2 } from "lucide-react";
 
 type JoinDialogViewProps = {
   setDialogView: React.Dispatch<React.SetStateAction<DialogViewState>>;
@@ -14,9 +15,15 @@ const JoinDialogView = ({ setDialogView }: JoinDialogViewProps) => {
   const router = useRouter();
   const [username, setUsername] = useState("");
   const [roomcode, setRoomCode] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const joinRoom = () => {
-    if (!socket) return;
+    setIsLoading(true);
+
+    if (!socket) {
+      setIsLoading(false);
+      return;
+    }
 
     const user = { username };
     socket.emit("new-user", user, (response: { status: string }) => {
@@ -24,6 +31,7 @@ const JoinDialogView = ({ setDialogView }: JoinDialogViewProps) => {
         socket.emit("join-game-room", roomcode);
       }
       router.push(`/room/${roomcode}`);
+      setIsLoading(false);
     });
   };
 
@@ -71,7 +79,13 @@ const JoinDialogView = ({ setDialogView }: JoinDialogViewProps) => {
           onClick={joinRoom}
           className="w-fit bg-[#E7E7E4] text-[#0F0F10] inline-flex h-10 items-center justify-center rounded-md px-6 font-semibold shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:opacity-50 disabled:hover:cursor-not-allowed"
         >
-          Join
+          <p>
+            {isLoading ? (
+              <Loader2 className="animate-spin" width={20} />
+            ) : (
+              "Join"
+            )}
+          </p>
         </button>
       </div>
     </div>

@@ -4,6 +4,7 @@ import { DialogHeader, DialogTitle } from "../ui/dialog";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useSocket } from "@/context/SocketContext";
+import { Loader2 } from "lucide-react";
 
 type CreateDialogViewProps = {
   setDialogView: React.Dispatch<React.SetStateAction<DialogViewState>>;
@@ -14,9 +15,15 @@ const CreateDialogView = ({ setDialogView }: CreateDialogViewProps) => {
   const router = useRouter();
   const [username, setUsername] = useState("");
   const [quizname, setQuizname] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const createRoom = () => {
-    if (!socket) return;
+    setIsLoading(true);
+
+    if (!socket) {
+      setIsLoading(false);
+      return;
+    }
 
     const user = { username };
     socket.emit("new-user", user, (response: { status: string }) => {
@@ -24,6 +31,7 @@ const CreateDialogView = ({ setDialogView }: CreateDialogViewProps) => {
         socket.emit("create-game-room", quizname);
       }
       router.push(`/room/${quizname}`);
+      setIsLoading(false);
     });
   };
 
@@ -69,9 +77,16 @@ const CreateDialogView = ({ setDialogView }: CreateDialogViewProps) => {
 
         <button
           onClick={createRoom}
+          disabled={isLoading}
           className="w-fit bg-[#E7E7E4] text-[#0F0F10] inline-flex h-10 items-center justify-center rounded-md px-6 font-semibold shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:opacity-50 disabled:hover:cursor-not-allowed"
         >
-          Create
+          <p>
+            {isLoading ? (
+              <Loader2 className="animate-spin" width={20} />
+            ) : (
+              "Create"
+            )}
+          </p>
         </button>
       </div>
     </div>
