@@ -2,6 +2,7 @@
 import { DialogViewState } from "../StartQuizDialog";
 import { DialogHeader, DialogTitle } from "../ui/dialog";
 import { useState } from "react";
+import { v4 as uuid } from "uuid";
 import { useRouter } from "next/navigation";
 import { useSocket } from "@/context/SocketContext";
 import { Loader2 } from "lucide-react";
@@ -15,7 +16,7 @@ const CreateDialogView = ({ setDialogView }: CreateDialogViewProps) => {
   const { socket } = useSocket();
   const router = useRouter();
   const [username, setUsername] = useState("");
-  const [quizname, setQuizname] = useState("test-quiz-323");
+  const [quizname, setQuizname] = useState(uuid());
   const [isLoading, setIsLoading] = useState(false);
 
   const createRoom = () => {

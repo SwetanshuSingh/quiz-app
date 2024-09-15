@@ -24,7 +24,7 @@ export const SocketContextProvider = ({
   const [socket, setSocket] = useState<Socket | undefined>(undefined);
 
   useEffect(() => {
-    const socket = io("http://localhost:3001");
+    const socket = io(process.env.NEXT_PUBLIC_BACKEND_URL as string);
     setSocket(socket);
 
     return () => {
