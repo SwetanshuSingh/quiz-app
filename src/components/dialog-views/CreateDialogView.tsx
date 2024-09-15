@@ -2,9 +2,11 @@
 import { DialogViewState } from "../StartQuizDialog";
 import { DialogHeader, DialogTitle } from "../ui/dialog";
 import { useState } from "react";
+import { v4 as uuid } from "uuid";
 import { useRouter } from "next/navigation";
 import { useSocket } from "@/context/SocketContext";
 import { Loader2 } from "lucide-react";
+import CopyButton from "../CopyButton";
 
 type CreateDialogViewProps = {
   setDialogView: React.Dispatch<React.SetStateAction<DialogViewState>>;
@@ -14,7 +16,7 @@ const CreateDialogView = ({ setDialogView }: CreateDialogViewProps) => {
   const { socket } = useSocket();
   const router = useRouter();
   const [username, setUsername] = useState("");
-  const [quizname, setQuizname] = useState("");
+  const [quizname, setQuizname] = useState(uuid());
   const [isLoading, setIsLoading] = useState(false);
 
   const createRoom = () => {
@@ -56,14 +58,17 @@ const CreateDialogView = ({ setDialogView }: CreateDialogViewProps) => {
 
         <div className="flex flex-col gap-2">
           <p className="text-xl font-medium text-gray-200">
-            Enter quiz name to below to start
+            Copy the below room id and share!
           </p>
-          <input
-            className="p-3 rounded-md bg-[#1A1A1B] hover:bg-[#2A2A2B] text-[#E7E7E4] border border-[#E7E7E4] border-opacity-20"
-            type="text"
-            value={quizname}
-            onChange={(evt) => setQuizname(evt.target.value)}
-          />
+          <div className="flex gap-2">
+            <input
+              disabled
+              className="w-full p-3 rounded-md bg-[#1A1A1B] hover:bg-[#2A2A2B] text-[#E7E7E4] border border-[#E7E7E4] border-opacity-20"
+              type="text"
+              value={quizname}
+            />
+            <CopyButton value={quizname} />
+          </div>
         </div>
       </div>
 
@@ -77,7 +82,7 @@ const CreateDialogView = ({ setDialogView }: CreateDialogViewProps) => {
 
         <button
           onClick={createRoom}
-          disabled={isLoading}
+          disabled={isLoading || username.length < 3}
           className="w-fit bg-[#E7E7E4] text-[#0F0F10] inline-flex h-10 items-center justify-center rounded-md px-6 font-semibold shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:opacity-50 disabled:hover:cursor-not-allowed"
         >
           <p>

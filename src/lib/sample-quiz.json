@@ -1,0 +1,79 @@
+{
+  "quiz": [
+    {
+      "question": "What is the fundamental unit of information in a blockchain?",
+      "options": ["Block", "Hash", "Transaction", "Ledger"],
+      "correctAnswer": "Block"
+    },
+    {
+      "question": "Which consensus mechanism is used by Bitcoin?",
+      "options": [
+        "Proof of Stake",
+        "Proof of Work",
+        "Delegated Proof of Stake",
+        "Practical Byzantine Fault Tolerance"
+      ],
+      "correctAnswer": "Proof of Work"
+    },
+    {
+      "question": "What is the process of verifying the authenticity of a transaction on a blockchain called?",
+      "options": ["Hashing", "Mining", "Validation", "Consensus"],
+      "correctAnswer": "Mining"
+    },
+    {
+      "question": "Which technology is used to secure and verify transactions on a blockchain?",
+      "options": [
+        "Cryptography",
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Internet of Things"
+      ],
+      "correctAnswer": "Cryptography"
+    },
+    {
+      "question": "What is the term for a distributed ledger that is maintained and replicated across multiple computers?",
+      "options": ["Database", "Network", "Blockchain", "Server"],
+      "correctAnswer": "Blockchain"
+    },
+    {
+      "question": "Which type of blockchain is used for private transactions within an organization?",
+      "options": [
+        "Public Blockchain",
+        "Private Blockchain",
+        "Hybrid Blockchain",
+        "Permissioned Blockchain"
+      ],
+      "correctAnswer": "Private Blockchain"
+    },
+    {
+      "question": "What is the process of adding a new block to a blockchain called?",
+      "options": ["Forking", "Mining", "Validating", "Consensus"],
+      "correctAnswer": "Mining"
+    },
+    {
+      "question": "Which feature of blockchain ensures that data cannot be altered after it is recorded?",
+      "options": [
+        "Immutability",
+        "Transparency",
+        "Decentralization",
+        "Security"
+      ],
+      "correctAnswer": "Immutability"
+    },
+    {
+      "question": "What is a smart contract?",
+      "options": [
+        "A self-executing contract with terms directly written into code",
+        "A digital agreement between two parties",
+        "A type of cryptocurrency",
+        "A decentralized application"
+      ],
+      "correctAnswer": "A self-executing contract with terms directly written into code"
+    },
+    {
+      "question": "Which blockchain technology is known for its scalability and speed?",
+      "options": ["Ethereum", "Bitcoin", "Solana", "Cardano"],
+      "correctAnswer": "Solana"
+    }
+  ]
+}
