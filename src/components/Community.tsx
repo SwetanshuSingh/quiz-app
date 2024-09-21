@@ -1,31 +1,32 @@
 import { GitBranch } from "lucide-react";
 
+
 const Community = () => {
   return (
-    <section className="flex flex-col items-center lg:py-32 lg:gap-20">
-      <div className="flex flex-col items-center gap-3">
+    <section className="flex flex-col items-center py-16 md:py-32 px-4 md:px-8">
+      <div className="flex flex-col items-center gap-3 text-center mb-8 md:mb-16">
         <div className="w-fit bg-[#3D3D43] flex justify-center items-center gap-2 rounded-xl px-3 py-1">
           <GitBranch size={18} />
-          <p className="font-medium">By developers, for kids</p>
+          <p className="font-medium text-sm md:text-base">By developers, for kids</p>
         </div>
 
-        <h3 className="text-5xl tracking-tighter font-bold">
+        <h3 className="text-3xl md:text-5xl tracking-tighter font-bold">
           Built by the community
         </h3>
       </div>
 
-      <div className="flex justify-center items-start gap-8">
-        <div className="flex flex-col items-start gap-5">
-          <p className="max-w-[580px] text-lg">
+      <div className="flex flex-col md:flex-row justify-center items-start gap-8 w-full max-w-4xl">
+        <div className="flex flex-col items-start gap-5 w-full md:w-1/2">
+          <p className="text-base md:text-lg">
             QuizApp is free, open-source, and built by developers just like you.
             These are some of the contributors who made this possible so far.
           </p>
-          <span className="flex justify-center gap-2">
+          <div className="flex flex-wrap justify-center md:justify-start gap-2 w-full">
             <a
               target="_blank"
               rel="noreferrer"
               href=""
-              className="w-fit group bg-gray-800 flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-bold duration-300 hover:bg-[#5865F2] hover:text-white dark:bg-neutral-800 dark:hover:bg-[#5865F2]"
+              className="w-full sm:w-auto group bg-gray-800 flex items-center justify-center gap-2 rounded-xl px-3 py-2 text-sm font-bold duration-300 hover:bg-[#5865F2] hover:text-white dark:bg-neutral-800 dark:hover:bg-[#5865F2]"
             >
               <svg
                 className="h-4 w-4 fill-current group-hover:rotate-[360deg]"
@@ -43,7 +44,7 @@ const Community = () => {
               target="_blank"
               rel="noreferrer"
               href=""
-              className="group bg-gray-800 flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-bold duration-300 hover:bg-black hover:text-white dark:bg-neutral-800 dark:hover:bg-white dark:hover:text-black"
+              className="w-full sm:w-auto group bg-gray-800 flex items-center justify-center gap-2 rounded-xl px-3 py-2 text-sm font-bold duration-300 hover:bg-black hover:text-white dark:bg-neutral-800 dark:hover:bg-white dark:hover:text-black"
             >
               <svg
                 className="h-4 w-4 fill-current group-hover:-rotate-[360deg]"
@@ -57,10 +58,10 @@ const Community = () => {
               </svg>
               Contribute on GitHub
             </a>
-          </span>
+          </div>
         </div>
-        <div className="w-[540px] h-[300px] flex justify-center items-center bg-[#2F2E30] rounded-xl">
-          <p className="text-xl">{"looking for contributors :)"}</p>
+        <div className="w-full md:w-1/2 h-[200px] md:h-[300px] flex justify-center items-center bg-[#2F2E30] rounded-xl p-4">
+          <p className="text-base md:text-lg text-center">{"looking for contributors :)"}</p>
         </div>
       </div>
     </section>

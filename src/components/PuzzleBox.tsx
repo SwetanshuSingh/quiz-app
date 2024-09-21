@@ -37,7 +37,7 @@ const RandomPuzzleIcons = () => {
   }, []);
 
   return (
-    <div className="w-[600px] h-[700px] bg-[#181716] rounded-xl relative overflow-hidden">
+    <div className="w-full h-[400px] md:w-[600px] md:h-[700px] bg-[#181716] rounded-xl relative overflow-hidden">
       {icons.map((icon, index) => (
         <div
           key={index}
